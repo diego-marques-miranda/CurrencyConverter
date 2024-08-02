@@ -56,12 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const toCurrencyValue = toCurrency.value;
         const amountInput = parseFloat(document.getElementById('firstquantity').value);
 
-        if (!amountInput.trim()) {
-            console.error('Campo de entrada vazio.');
-            document.getElementById('result').textContent = 'Por favor, insira um valor.';
-            return;
-        }
-
         const amount = parseFloat(amountInput);
         if (isNaN(amount) || amount <= 0) {
             console.error('Valor de entrada inválido:', amountInput);
