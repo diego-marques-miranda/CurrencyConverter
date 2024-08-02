@@ -65,8 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.error('Valores de entrada inválidos');
         }
-}
-
     }
 
     document.getElementById("firstquantity").addEventListener('input', AtualizacaoResultado);
