@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function loadCurrencies() {
-        fetch('apiUrl') 
+        fetch(apiUrl) 
             .then(response => response.json())
             .then(data => {
                 console.log('Dados da API:', data);
