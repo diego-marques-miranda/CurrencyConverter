@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 console.log('Dados da API:', data.conversion_rates);
                 if (data && data.rates) {
-                    const currencies = Object.keys(data.rates);
+                    const currencies = Object.keys(data.conversion_rates);
                     currencies.forEach(currency => {
                         const option = document.createElement('option');
                         option.value = currency;
