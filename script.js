@@ -41,34 +41,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const toCurrency = document.getElementById("toCurrency").value;
         let secondquantity;
 
-        secondquantity = ConversaoGeral(fromCurrency, toCurrency, firstquantity);
+        secondquantity = ConversaoGeral(data.conversion_rates);
 
         document.getElementById('result').textContent = toCurrency + " " + secondquantity;
     }
 
 
-    function ConversaoGeral(fromCurrency, toCurrency, firstquantity) {
-        let secondquantity;
-        let aux;
+    function ConversaoGeral(rates) {
+        const fromCurrencyValue = fromCurrency.value;
+        const toCurrencyValue = toCurrency.value;
+        const amount = parseFloat(document.getElementById('amount').value);
 
-        if (fromCurrency == toCurrency) {
-            secondquantity = firstquantity; // If same currency same quantity
+        if (fromCurrencyValue && toCurrencyValue && !isNaN(amount)) {
+            const fromRate = rates[fromCurrencyValue];
+            const toRate = rates[toCurrencyValue];
 
-        } else if (fromCurrency == 'USD') {
-            secondquantity = firstquantity * taxes[secondc]; // If first currency is USD then multiply by fq second currency tax
-
-        } else if (toCurrency == 'USD') {
-            secondquantity = firstquantity / taxes[firstc]; // If second currency is USD then divide fq by first currecny tax
-
-        } else if (fromCurrency != 'USD' && toCurrency != 'USD'){
-            aux = firstquantity / taxes[fromCurrency];    
-            secondquantity = aux * taxes[toCurrency]; // If none currency is USD, then convert first quantity into USD and  then to second currency
-
+            if (fromRate && toRate) {
+                const result = (amount / fromRate) * toRate;
+                document.getElementById('result').textContent = `${amount} ${fromCurrencyValue} = ${result.toFixed(2)} ${toCurrencyValue}`;
+            } else {
+                console.error('Taxas de câmbio não encontradas para as moedas selecionadas');
+            }
+        } else {
+            console.error('Valores de entrada inválidos');
         }
+}
 
-        secondquantity = Math.floor(secondquantity * 100) / 100;
-
-        return secondquantity;
     }
 
     document.getElementById("firstquantity").addEventListener('input', AtualizacaoResultado);
