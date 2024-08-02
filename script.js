@@ -69,14 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (fromRate && toRate) {
                 const result = (amount / fromRate) * toRate;
+                return result;
             } else {
                 console.error('Taxas de câmbio não encontradas para as moedas selecionadas');
             }
         } else {
             console.error('Valores de entrada inválidos');
         }
-
-        return 1;
 
     }
 
