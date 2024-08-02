@@ -54,7 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function ConversaoGeral(rates) {
         const fromCurrencyValue = fromCurrency.value;
         const toCurrencyValue = toCurrency.value;
-        const amount = parseFloat(document.getElementById('firstquantity').value);
+        const amountInput = parseFloat(document.getElementById('firstquantity').value);
+
+        const amount = parseFloat(amountInput);
+        if (isNaN(amount) || amount <= 0) {
+            console.error('Valor de entrada inválido:', amountInput);
+            document.getElementById('result').textContent = 'Por favor, insira um valor válido.';
+            return;
+        }
 
         if (fromCurrencyValue && toCurrencyValue && !isNaN(amount)) {
             const fromRate = rates[fromCurrencyValue];
