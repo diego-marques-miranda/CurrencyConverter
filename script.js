@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                console.log('Dados da API:', data.rates);
+                console.log('Dados da API:', data.conversion_rates);
                 if (data && data.rates) {
                     const currencies = Object.keys(data.rates);
                     currencies.forEach(currency => {
