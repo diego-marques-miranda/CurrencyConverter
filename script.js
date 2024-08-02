@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function ConversaoGeral(rates) {
         const fromCurrencyValue = fromCurrency.value;
         const toCurrencyValue = toCurrency.value;
-        const amount = parseFloat(document.getElementById('amount').value);
+        const amount = parseFloat(document.getElementById('firstquantity').value);
 
         if (fromCurrencyValue && toCurrencyValue && !isNaN(amount)) {
             const fromRate = rates[fromCurrencyValue];
