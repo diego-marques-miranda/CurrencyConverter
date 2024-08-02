@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Valores de entrada inválidos');
         }
 
-        return result;
+        return 1;
 
     }
 
