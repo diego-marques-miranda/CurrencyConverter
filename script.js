@@ -26,7 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         option.textContent = currency;
                         fromCurrency.appendChild(option);
                         toCurrency.appendChild(option.cloneNode(true));
+
                     });
+                    document.getElementById("firstquantity").addEventListener('input', AtualizacaoResultado(data));
+                    document.getElementById("fromCurrency").addEventListener('change', AtualizacaoResultado(data));
+                    document.getElementById("toCurrency").addEventListener('change', AtualizacaoResultado(data));
                 } else {
                     console.error('Estrutura de dados inesperada:', data);
                 }
@@ -35,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 
-    function AtualizacaoResultado() {
+    function AtualizacaoResultado(data) {
         const firstquantity = document.getElementById("firstquantity").value;
         const fromCurrency = document.getElementById("fromCurrency").value;
         const toCurrency = document.getElementById("toCurrency").value;
@@ -67,9 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    document.getElementById("firstquantity").addEventListener('input', AtualizacaoResultado);
-    document.getElementById("fromCurrency").addEventListener('change', AtualizacaoResultado);
-    document.getElementById("toCurrency").addEventListener('change', AtualizacaoResultado);
+    
 
     loadCurrencies();
 });
