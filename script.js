@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const amountInput = parseFloat(document.getElementById('firstquantity').value);
 
         const amount = parseFloat(amountInput);
-        if (isNaN(amount) || amount <= 0) {
+        if (isNaN(amount) || amount < 0) {
             console.error('Valor de entrada inválido:', amountInput);
             document.getElementById('result').textContent = 'Por favor, insira um valor válido.';
             return;
