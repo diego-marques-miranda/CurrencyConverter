@@ -1,4 +1,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Permissions-Policy = "interest-cohort=()"
+    Referrer-Policy = "no-referrer"
