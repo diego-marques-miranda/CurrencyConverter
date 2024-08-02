@@ -9,7 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadCurrencies() {
         fetch(apiUrl)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na resposta da API: ' + response.statusText);
+                }
+                
+                return response.json();
+            })
             .then(data => {
                 console.log('Dados da API:', data);
                 if (data && data.rates) {
