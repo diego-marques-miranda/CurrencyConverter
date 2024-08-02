@@ -8,21 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function loadCurrencies() {
-        fetch(apiUrl) 
+        fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 console.log('Dados da API:', data);
-                const currencies = Object.keys(data.rates);
-                currencies.forEach(currency => {
-                    const option = document.createElement('option');
-                    option.value = currency;
-                    option.textContent = currency;
-                    fromCurrency.appendChild(option);
-                    toCurrency.appendChild(option.cloneNode(true));
-                });
-            })
+                if (data && data.rates) {
+                    const currencies = Object.keys(data.rates);
+                    currencies.forEach(currency => {
+                        const option = document.createElement('option');
+                        option.value = currency;
+                        option.textContent = currency;
+                        fromCurrency.appendChild(option);
+                        toCurrency.appendChild(option.cloneNode(true));
+                    });
+                } else {
+                    console.error('Estrutura de dados inesperada:', data);
+                }
+        })
             .catch(error => console.error('Erro ao carregar as moedas:', error));
-    }
+}
 
 
     function AtualizacaoResultado() {
