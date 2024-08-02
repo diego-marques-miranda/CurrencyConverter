@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function AtualizacaoResultado() {
         const firstquantity = document.getElementById("firstquantity").value;
-        const fromCurrency = document.getElementById("firstoptions").value;
-        const toCurrency = document.getElementById("secondoptions").value;
+        const fromCurrency = document.getElementById("fromCurrency").value;
+        const toCurrency = document.getElementById("toCurrency").value;
         let secondquantity;
 
         secondquantity = ConversaoGeral(fromCurrency, toCurrency, firstquantity);
