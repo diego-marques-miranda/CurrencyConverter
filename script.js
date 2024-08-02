@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadCurrencies();
 
-    document.getElementById("firstquantity").addEventListener('input', AtualizacaoResultado(loadCurrencies(data)));
-    document.getElementById("fromCurrency").addEventListener('change', AtualizacaoResultado(loadCurrencies(data)));
-    document.getElementById("toCurrency").addEventListener('change', AtualizacaoResultado(loadCurrencies(data)));
+    document.getElementById("firstquantity").addEventListener('input', AtualizacaoResultado(loadCurrencies()));
+    document.getElementById("fromCurrency").addEventListener('change', AtualizacaoResultado(loadCurrencies()));
+    document.getElementById("toCurrency").addEventListener('change', AtualizacaoResultado(loadCurrencies()));
 });
