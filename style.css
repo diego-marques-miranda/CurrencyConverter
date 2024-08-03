@@ -1,17 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.nunito {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Nunito";
     margin: 0;
 }
 
 header {
     display: flex;
-    background-color: #024059;
+    background-color: #00E96E;
     color: white;
     margin: 0;
     padding: 40px;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 
 }
 
@@ -19,22 +37,25 @@ h1 {
     margin: 0;
     font-size: 4em;
     text-align: center;
+    cursor: default;
 }
 
 section {
     display: flex;
-    outline: 2px solid #025E73;
-    background-color: #03a5c915;
+    outline: 2px solid #009C4A;
+    background-color: #85ffbe39;
     padding: 10px 15px 10px 15px;
     margin: 40px;
     border-radius: 15px;
     justify-content: space-between;
+
 }
 
 form {
     display: flex;
     flex-direction: column;  
     float: left;  
+    margin: 15px;
 }
 
 
@@ -50,13 +71,22 @@ select {
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
-    border-color: #025E73;
+    border-color: #009C4A;
     border-width: 2px;
+}
+
+select:focus {
+    border-color: #005025;
 }
 
 #options { 
     display: flex;
     flex-direction: row;
+}
+
+select option :hover {
+    background-color: #00E96E;
+    color: white;
 }
 
 span {
@@ -65,34 +95,57 @@ span {
 }
 
 input {
+    outline: none;
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
     border-width: 2px;
-    border-color: #025E73;
+    border-color: #009C4A;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 
 #secondc { 
     align-items: flex-end;
 }
 
 #result {
+    outline: none;
     display: flex;
     text-align: start;
     appearance: auto;
     -webkit-rtl-ordering: logical;
     cursor: text;
-    background-color: field;
-    border-style: inset;
-    border-color: #025E73;
-    border-image: initial;
-    border-width: 2px;
-    width: 560px;
-    height: 80px;
+    width: auto;
+    height: auto;
     border-radius: 5px;
     padding: 5px;
     margin: auto;
     justify-content: center;
     align-items: center;
     font-size: 2em;
+    background-color: none;
+    color: #004520;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 10px;
+        margin: 20px;
+    }
+
+    select, input {
+        width: 100%;
+        font-size: 0.9em;
+    }
+
+    #result {
+        font-size: 1.5em;
+    }
 }
